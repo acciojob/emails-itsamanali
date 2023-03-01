@@ -54,11 +54,10 @@ public class Email {
              } else if (isDigit == false && ch >= '0' && ch <= '9') {
                  isDigit = true;
              }
-             else if(isSpecial == false && ch >= ' ' && ch < '0' || ch > '9' && ch < 'A' || ch > 'Z' && ch < 'a' ||
-               ch > 'z'){
+             else {
                  isSpecial = true;
              }
          }
-         return isSmall && isDigit && isCapital && isSpecial;
+         return (isSmall && isDigit && isCapital && isSpecial);
     }
 }

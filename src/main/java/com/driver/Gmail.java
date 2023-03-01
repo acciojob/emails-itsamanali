@@ -47,6 +47,8 @@ public class Gmail extends Email {
     public String findLatestMessage(){
         // If the inbox is empty, return null
         // Else, return the message of the latest mail present in the inbox
+        if(inbox.isEmpty())
+            return null;
         Mails t = inbox.get(inbox.size()-1);
         return t.getMessage();
     }
@@ -54,6 +56,8 @@ public class Gmail extends Email {
     public String findOldestMessage(){
         // If the inbox is empty, return null
         // Else, return the message of the oldest mail present in the inbox
+        if(inbox.isEmpty())
+            return null;
         Mails t = inbox.get(0);
         return t.getMessage();
     }
@@ -64,8 +68,8 @@ public class Gmail extends Email {
         int count = 0;
         for(Mails M : inbox){
         Date D = M.getDate();
-            if(D.compareTo(start) > 0 && D.compareTo(end) < 0){
-                count++;
+            if(D.compareTo(start) >= 0 && D.compareTo(end) <= 0){
+                count+=1;
             }
 
         }
